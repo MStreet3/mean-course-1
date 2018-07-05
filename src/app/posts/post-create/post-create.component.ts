@@ -12,12 +12,18 @@ import { PostsService } from '../posts.service';
   })
 
 export class PostCreateComponent {
-    constructor(public postsService: PostsService) {
+
+  postsService: PostsService;
+
+    constructor(postsService: PostsService) {
+      this.postsService = postsService;
 
     }
 
     onAddPost(form: NgForm) {
-
+    /* Checks if the form is valid, if form
+    is not valid then no data is added.
+    Otherwise, data is added and the form is reset. */
     if (form.invalid) {
         return;
     }
